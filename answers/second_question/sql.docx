@@ -1,0 +1,35 @@
+2) Considere o esquema Entidade / Relacionamento abaixo:
+   
+1.
+SELECT a.nome
+FROM Aluno a
+INNER JOIN Cursa c ON a.código_aluno = c.código_aluno
+INNER JOIN Disciplina d ON c.código_disciplina = d.código_disciplina
+INNER JOIN Leciona l ON d.código_disciplina = l.código_disciplina
+INNER JOIN Professor p ON l.código_professor = p.código_professor
+WHERE d.nome = 'Cálculo' AND p.nome = 'João';
+
+
+2. 
+SELECT d.nome, COUNT(c.código_aluno) AS quantidade_alunos
+FROM Disciplina d
+INNER JOIN Cursa c ON d.código_disciplina = c.código_disciplina
+GROUP BY d.nome;
+
+3. 
+SELECT d.nome
+FROM Disciplina d
+INNER JOIN Leciona l ON d.código_disciplina = l.código_disciplina
+GROUP BY d.nome
+HAVING COUNT(DISTINCT l.código_professor) = (SELECT COUNT(*) FROM Professor);
+
+4.
+SELECT COUNT(*) AS total_professores
+FROM Professor;
+
+5.
+SELECT DISTINCT a.nome
+FROM Aluno a
+INNER JOIN Cursa c ON a.código_aluno = c.código_aluno
+INNER JOIN Disciplina d ON c.código_disciplina = d.código_disciplina
+WHERE d.ano BETWEEN 2000 AND 2020;
