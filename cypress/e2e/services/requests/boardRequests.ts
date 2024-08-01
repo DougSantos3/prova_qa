@@ -1,3 +1,7 @@
+interface GetBoardsOptions {
+  fields?: string;
+}
+
 export const createBoard = (name: string) => {
   return cy.request({
     method: 'POST',
@@ -21,14 +25,19 @@ export const deleteBoard = (boardId: string) => {
   })
 }
 
-export const getBoards = (cookie: String) => {
+export const getBoards = (cookie: string, options: GetBoardsOptions = {}) => {
+  const { fields } = options;
+  
+  const qs = {
+    key: Cypress.env('apiKey'),
+    token: Cypress.env('token'),
+    ...(fields && { fields })
+  }
+
   return cy.request({
     method: 'GET',
     url: 'https://api.trello.com/1/members/me/boards',
-    qs: {
-      key: Cypress.env('apiKey'),
-      token: Cypress.env('token')
-    },
+    qs,
     headers: {
       'Cookie': cookie
     }
