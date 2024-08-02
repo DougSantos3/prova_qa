@@ -11,9 +11,9 @@ export const createCard = (listId: string, name: string) => {
   })
 }
 
-export const deleteCard = (cardId: string) => {
+export const getCard = (cardId: string) => {
   return cy.request({
-    method: 'DELETE',
+    method: 'GET',
     url: `/1/cards/${cardId}`,
     qs: {
       key: Cypress.env('apiKey'),
@@ -22,9 +22,9 @@ export const deleteCard = (cardId: string) => {
   })
 }
 
-export const getCard = (cardId: string) => {
+export const deleteCard = (cardId: string) => {
   return cy.request({
-    method: 'GET',
+    method: 'DELETE',
     url: `/1/cards/${cardId}`,
     qs: {
       key: Cypress.env('apiKey'),

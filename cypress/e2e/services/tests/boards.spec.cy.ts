@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import { boardsSchemaCompleted } from '../contracts/boardSchemaWithClosed'
 import { boardSchemaWithoutClosed } from '../contracts/boardSchemaWithoutClosed'
-import { getBoards  } from '../requests/boardRequests'
+import { getBoards  } from '../requests/board_requests'
 
 const cookie = 'dsc=e77cc985d3aada2fa780f48e6f08aa0ce7d1b07247156d5538fdc77ea8f90658'
 
