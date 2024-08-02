@@ -10,8 +10,6 @@ describe('Trello API Tests', () => {
   const listName = 'Apps'
   const cardName = 'Android'
 
-  const idBoard = "idBoard"
-
   before(() => {
     createBoard(boardName).then(response => {
       expect(response.status).to.eq(200)

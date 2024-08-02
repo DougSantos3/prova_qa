@@ -29,14 +29,6 @@ Cypress.Commands.add('getExampleOfCommonRequestWithQueryParameter', (qs) => {
   })
 })
 
-Cypress.Commands.add('getExample', (id) => {
-  cy.request({
-    method: 'GET',
-    url: `/exampleOfAveryCommonRequest/${id}`,
-    headers: { authorization: Cypress.env('token') }
-  })
-})
-
 Cypress.Commands.add('putExampleOfAveryCommonRequest', (id, body = { valueOne, valueTwo, valueThree, valueFour }) => {
   cy.request({
     method: 'PUT',
