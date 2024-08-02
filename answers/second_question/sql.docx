@@ -33,3 +33,10 @@ FROM Aluno a
 INNER JOIN Cursa c ON a.código_aluno = c.código_aluno
 INNER JOIN Disciplina d ON c.código_disciplina = d.código_disciplina
 WHERE d.ano BETWEEN 2000 AND 2020;
+
+
+Observação: Se estiver usando um SGBD que permita o nolock e não haver problemas 
+de usar dados que podem estar desatualizados, ele pode ser usado para a consulta 
+se tornar mais rapida e não travar o banco, pensando em tabelas grandes, caso a 
+equipe concorde, porém se não for autorizado, não utilizo esse recurso para os 
+dados sempre virem atualizados.
