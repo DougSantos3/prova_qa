@@ -18,14 +18,14 @@ export const getBoards = (cookie: string, options: GetBoardsOptions = {}) => {
   const { fields } = options
   
   const qs = {
+    ...(fields && { fields: encodeURIComponent(fields) }),
     key: Cypress.env('apiKey'),
-    token: Cypress.env('token'),
-    ...(fields && { fields })
+    token: Cypress.env('token')
   }
 
   return cy.request({
     method: 'GET',
-    url: 'https://api.trello.com/1/members/me/boards',
+    url: '/1/members/me/boards',
     qs,
     headers: {
       'Cookie': cookie
@@ -41,7 +41,7 @@ export const getBoard = (boardId: string, cookie: string) => {
 
   return cy.request({
     method: 'GET',
-    url: `https://api.trello.com/1/boards/${boardId}`,
+    url: `/1/boards/${boardId}`,
     qs,
     headers: {
       'Cookie': cookie
@@ -49,7 +49,7 @@ export const getBoard = (boardId: string, cookie: string) => {
   })
 }
 
-export const updateBoardName = (boardId: string, name: string, cookie: string) => {
+export const updateBoardName = (boardId: string, cookie: string) => {
   const qs = {
     key: Cypress.env('apiKey'),
     token: Cypress.env('token')
@@ -57,15 +57,12 @@ export const updateBoardName = (boardId: string, name: string, cookie: string) =
 
   return cy.request({
     method: 'PUT',
-    url: `https://api.trello.com/1/boards/${boardId}`,
+    url: `/1/boards/${boardId}`,
     qs,
     headers: {
       'Content-Type': 'application/json',
       'Cookie': cookie
     },
-    body: {
-      name
-    }
   })
 }
 

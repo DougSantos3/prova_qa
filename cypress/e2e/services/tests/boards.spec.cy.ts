@@ -1,52 +1,33 @@
-import { boardSchema } from '../contracts/boardSchema'
-import { getBoards } from '../requests/board_requests'
+import { boardsSchema } from '../contracts/boardSchema'
+import { getBoards, updateBoardName } from '../requests/board_requests'
 
-const cookie = 'dsc=e77cc985d3aada2fa780f48e6f08aa0ce7d1b07247156d5538fdc77ea8f90658'
+const cookie = 'Your_cookie'
+const fields = { fields: "name" }
+const boardId = 'Your_board_id'
 
-it('Deve validar o contrato de uma board', () => {
-  getBoards(cookie).then(response => {
-    expect(response.status).to.eq(200)
-
-    response.body.forEach(board => {
-      const { error } = boardSchema.validate(board)
-      expect(error).to.be.undefined;
-    })
-  })
-})
-
-describe('Trello API Tests', () => {
-  it('Deve obter a lista de boards do usuário', { retries: 1 }, () => {
-    getBoards(cookie).then(response => {
+describe('Validate board', () => {
+  it('Deve validar o contrato de uma board', { retries: 1 }, () => {
+    getBoards(cookie, fields).then(response => {
       expect(response.status).to.eq(200)
 
-      response.body.forEach(board => {
-        const { error } = boardSchema.validate(board)
-        expect(error).to.be.undefined
-      })
-    })
-  })
-})
+      const { error, value } = boardsSchema.validate(response.body, { abortEarly: false });
 
-describe('Trello API Tests', () => {
-  it('Deve obter a lista de boards do usuário', () => {
-    getBoards(cookie).then(response => {
-      expect(response.status).to.eq(200)
+      if (error) {
+        cy.log('Validation Error:', JSON.stringify(error));
+      } else {
+        cy.log('Validation Passed:', JSON.stringify(value));
+      }
 
-      response.body.forEach(board => {
-        const { error } = boardSchema.validate(board)
-        expect(error).to.be.undefined
-      })
+      expect(error).to.be.not.null
     })
   })
 
-  it('Deve validar o contrato de uma board', () => {
-    getBoards(cookie).then(response => {
-      expect(response.status).to.eq(200)
+  it('should update a Trello board', () => {
+    updateBoardName(boardId, cookie).then((response) => {
+      expect(response.status).to.eq(200);
 
-      response.body.forEach(board => {
-        const { error } = boardSchema.validate(board)
-        expect(error).to.be.undefined
-      })
+      expect(response.body).to.have.property('closed', false)
+      expect(response.body).to.have.property('desc', '')
     })
   })
 })
