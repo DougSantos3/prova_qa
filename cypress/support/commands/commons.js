@@ -45,3 +45,16 @@ Cypress.Commands.add('deleteExampleOfAveryCommonRequest', (id) => {
     headers: { authorization: Cypress.env('token') }
   })
 })
+
+Cypress.Commands.add('interceptBoardsForbidden', () => {
+  cy.intercept('GET', 'https://api.trello.com/1/members/me/boards', {
+    statusCode: 403,
+    body: {
+      error: 'Forbidden',
+      message: 'You do not have permission to access this resource.'
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).as('getBoardsForbidden')
+})
