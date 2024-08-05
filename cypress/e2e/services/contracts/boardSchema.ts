@@ -3,10 +3,10 @@ import Joi from 'joi'
 const boardSchema = Joi.object({
   id: Joi.string().required(),
   name: Joi.string().required(),
-  closed: Joi.boolean().optional(),
-  url: Joi.string().uri().required()
+  url: Joi.string().uri().optional(),
+  closed: Joi.boolean().optional()
 })
 
 const boardsSchema = Joi.array().items(boardSchema)
 
-export { boardSchema }
+export { boardsSchema }
