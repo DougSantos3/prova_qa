@@ -40,10 +40,14 @@ B) Testes de contrato: cypress/e2e/services/tests/boards.spec.cy.ts
 C) Existe a Integração com o banco postgres e queries nos commands: /home/douglas/Documents/prova_qa/cypress/support/commands/database-commands.js
 
 <br> 
-D) Page objects: cypress/e2e/ui/pages
+D) Commands com diversas funções que podem ser usadas como a inteceptor: interceptBoardsForbidden
+cypress/support/commands/commons.js
+
+<br> 
+E) Page objects: cypress/e2e/ui/pages
 
 <br>
-E) Testes de api: cypress/e2e/services/tests/
+F) Testes de api: cypress/e2e/services/tests/
 
 <br>
-F) Teste de interface gráfica: cypress/e2e/ui/tests/
+G) Teste de interface gráfica: cypress/e2e/ui/tests/

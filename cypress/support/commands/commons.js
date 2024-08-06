@@ -1,3 +1,16 @@
+Cypress.Commands.add('interceptBoardsForbidden', () => {
+  cy.intercept('GET', '/1/members/me/boards', {
+    statusCode: 403,
+    body: {
+      error: 'Forbidden',
+      message: 'You do not have permission to access this resource.'
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).as('getBoardsForbidden')
+})
+
 Cypress.Commands.add('postExampleOfAveryCommonRequest', ( body = { valueOne, valueTwo, valueThree, valueFour }) => {
   cy.request({
     method: 'POST',
@@ -44,17 +57,4 @@ Cypress.Commands.add('deleteExampleOfAveryCommonRequest', (id) => {
     url: `/exampleOfAveryCommonRequest/${id}`,
     headers: { authorization: Cypress.env('token') }
   })
-})
-
-Cypress.Commands.add('interceptBoardsForbidden', () => {
-  cy.intercept('GET', 'https://api.trello.com/1/members/me/boards', {
-    statusCode: 403,
-    body: {
-      error: 'Forbidden',
-      message: 'You do not have permission to access this resource.'
-    },
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).as('getBoardsForbidden')
 })
