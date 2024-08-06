@@ -43,7 +43,7 @@ C) Existe a Integração com o banco postgres e queries nos commands: /home/doug
 D) Page objects: cypress/e2e/ui/pages
 
 <br>
-E) Testes de api: cypress/e2e/services/tests
+E) Testes de api: cypress/e2e/services/tests/
 
 <br>
-F) Teste de interface gráfica: login.spec.cy
+F) Teste de interface gráfica: cypress/e2e/ui/tests/
