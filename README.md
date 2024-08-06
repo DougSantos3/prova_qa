@@ -12,28 +12,20 @@ Pasta de arquivo com resposta: answers/second_question/sql.docx
 ### 3) Para validarmos a sua técnica de automação de testes, vamos utilizar uma api de desenvolvimento referente a plataforma Trello.
 <br>
 
-Execução:
+Fazer download das bibliotecas:
 ```bash
 npm install
 ```
 
-Rodar via headless:
+Rodar os cenários de serviços via headless:
 ```bash
 npx cypress run
 ```
-ou
-```bash
-cypress run
-```
 
-Para rodar gráfico:
+Para rodar o cenário via interface gráfica:
 
 ```bash
 npx cypress open
-```
-ou
-```bash
-cypress open
 ```
 <br>
 
