@@ -22,6 +22,23 @@ export const getCard = (cardId: string) => {
   })
 }
 
+export const updateCustomFields = (cardId: string) => {
+  return cy.fixture('updateCustomFields').then((customFieldData) => {
+    return cy.request({
+      method: 'PUT',
+      url: `/1/cards/${cardId}/customFields`,
+      qs: {
+        key: Cypress.env('apiKey'),
+        token: Cypress.env('token')
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: customFieldData
+    })
+  })
+}
+
 export const deleteCard = (cardId: string) => {
   return cy.request({
     method: 'DELETE',
