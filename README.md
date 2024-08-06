@@ -22,7 +22,7 @@ Rodar os cenários de serviços via headless:
 npx cypress run
 ```
 
-Para rodar o cenário via interface gráfica:
+Para abrir Dashboard do Cypress:
 
 ```bash
 npx cypress open
@@ -37,13 +37,13 @@ A) Foi mapeado o contrato de um requisição usando a lib Joi: cypress/e2e/servi
 B) Testes de contrato: cypress/e2e/services/tests/boards.spec.cy.ts
 
 <br>
-C) Existe a Integração com o banco postgres e queries no commands: /home/douglas/Documents/prova_qa/cypress/support/commands/database-commands.js
+C) Existe a Integração com o banco postgres e queries nos commands: /home/douglas/Documents/prova_qa/cypress/support/commands/database-commands.js
 
 <br> 
 D) Page objects: cypress/e2e/ui/pages
 
 <br>
-E) Testes de funcionalidades de api: cypress/e2e/services/tests
+E) Testes de api: cypress/e2e/services/tests
 
 <br>
 F) Teste de interface gráfica: login.spec.cy
