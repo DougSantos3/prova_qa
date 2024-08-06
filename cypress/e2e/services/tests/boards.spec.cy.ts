@@ -1,9 +1,9 @@
 import { boardsSchema } from '../contracts/boardSchema'
 import { getBoards, updateBoardName } from '../requests/board_requests'
 
-const cookie = 'Your_cookie'
 const fields = { fields: "name" }
-const boardId = 'Your_board_id'
+const boardId = Cypress.env('boardId')
+const cookie = Cypress.env('cookie')
 
 describe('Validate board', () => {
   it('Deve validar o contrato de uma board', { retries: 1 }, () => {
