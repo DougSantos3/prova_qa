@@ -50,4 +50,4 @@ E) Page objects: cypress/e2e/ui/pages
 F) Testes de api: cypress/e2e/services/tests/
 
 <br>
-G) Teste de interface gráfica: cypress/e2e/ui/tests/
+G) Teste de interface gráfica: cypress/e2e/ui/tests/accessLoginToContinue.spec.cy.ts
