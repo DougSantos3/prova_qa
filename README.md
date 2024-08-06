@@ -1,9 +1,11 @@
 ### 1) Quais cenários de teste você especificaria para validar a funcionalidade do aplicativo bancário desenhado abaixo? Liste todas as premissas adotadas.
 ### Pasta de arquivo com resposta: answers/first_question/transfer.feature
+
 <br>
 
 ### 2) Considere o esquema Entidade / Relacionamento abaixo:
 ### Pasta de arquivo com resposta: answers/second_question/sql.docx
+
 <br>
 
 
@@ -11,15 +13,27 @@
 
 ### Execução:
 ```bash
-`npm install`<br>
+npm install
 ```
+
+Rodar via headless
+```bash
+npx cypress run
+```
+ou
+```bash
+cypress run
+```
+
+Para rodar gráfico:
 
 ```bash
-`npx cypress run` ou `cypress run`
+npx cypress open
 ```
-
-Para rodar gráfico:<br>
-`npx cypress open` ou `cypress open`
+ou
+```bash
+cypress open
+```
 
 ### Observações sobre o item 3
 ### A) Foi mapeado o contrato de um requisição usando a lib Joi: cypress/e2e/services/contracts/boardSchema.ts
