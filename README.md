@@ -1,17 +1,22 @@
 ### 1) Quais cenários de teste você especificaria para validar a funcionalidade do aplicativo bancário desenhado abaixo? Liste todas as premissas adotadas.
-### answers/first_question/transfer.feature
+### Pasta de arquivo com resposta: answers/first_question/transfer.feature
 <br>
 
 ### 2) Considere o esquema Entidade / Relacionamento abaixo:
-### answers/second_question/sql.docx
+### Pasta de arquivo com resposta: answers/second_question/sql.docx
 <br>
 
 
 ### 3) Para validarmos a sua técnica de automação de testes, vamos utilizar uma api de desenvolvimento referente a plataforma Trello.
 
 ### Execução:
+```bash
 `npm install`<br>
+```
+
+```bash
 `npx cypress run` ou `cypress run`
+```
 
 Para rodar gráfico:<br>
 `npx cypress open` ou `cypress open`
